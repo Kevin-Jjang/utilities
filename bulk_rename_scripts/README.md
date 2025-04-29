@@ -50,3 +50,12 @@ The `-z` flag checks if the date variable is an empty string, then attempts to s
 ### See Also
 
 For Windows users, Microsoft PowerToys's PowerRename tool can help with renaming the images further. If you would like to keep the date format but rename the rest of the file name, you would have to select by the first dash and split the string.
+
+Regex: `IMG.*` 
+Change to new name and toggle the enumerate option in the event of duplicate names. PowerRename may overwrite and delete files without warning if they have duplicate names.
+
+The enumerate option will attach `" (#)"` to the end of each filename. To change this to something else, use the following expression.
+
+Regex: `(.*) \(([0-9]+)\)`
+New name: `$1-$2`, do not enumerate.
+The expression caught in `$1` is the name of the file up to `" (#)"` and `$2` is the number. This format puts a dash in between the filename and the enumerated number.
